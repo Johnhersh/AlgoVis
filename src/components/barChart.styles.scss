@@ -1,0 +1,13 @@
+.barChartContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.listContentContainer {
+  display: flex;
+  flex: 3;
+  padding-bottom: 20px;
+  flex-direction: row;
+  align-items: flex-end;
+}

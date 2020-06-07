@@ -1,0 +1,19 @@
+.arraySortingPageContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+.barChartComponentContainer {
+  display: flex;
+  flex: 3;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
