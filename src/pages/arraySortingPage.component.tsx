@@ -3,16 +3,23 @@ import React, { useState } from "react";
 import BarChart from "../components/barChart.component";
 import Button from "../components/button.component";
 import ButtonPicker from "../components/buttonPicker.component";
-import { iterativeMergeSort, quickSort } from "../algorithms/sortingAlgorithms";
+import {
+  iterativeMergeSort,
+  quickSort,
+  bubbleSort,
+} from "../algorithms/sortingAlgorithms";
 
 import "./arraySortingPage.styles.scss";
 
 export default function ArraySortingPage() {
   const [desiredAmountOfValues, setNumberOfValues] = useState(15);
   const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
-  const [algoPicker, setAlgoPicker] = useState("quicksort"); // Can be 'quicksort' or 'mergesort'
+  const [algoPicker, setAlgoPicker] = useState("quicksort"); // Can be: 'quicksort', 'mergesort', 'bubblesort'
 
-  var barchartItemsBuffer: { index: number; value: number }[] = []; // A buffer I can push results into
+  var barchartItemsBuffer: {
+    index: number;
+    value: number;
+  }[] = []; // A buffer I can push results into
   var refreshTimer: number;
 
   // Gets passed down to the reset button component and called from there
@@ -41,12 +48,22 @@ export default function ArraySortingPage() {
           updateItems
         );
         break;
+      case "bubblesort":
+        refreshTimer = window.setInterval(() => {
+          updateChart(2);
+        }, 70);
+        sortedArray = getNumbersOnlyArray(items);
+        bubbleSort(sortedArray, updateItems);
+        break;
     }
   }
 
   // Whenever a sorting function updates an iteration
   function updateItems(indexA: number, newValue: number) {
-    barchartItemsBuffer.push({ index: indexA, value: newValue });
+    barchartItemsBuffer.push({
+      index: indexA,
+      value: newValue,
+    });
   }
 
   // Will get called every X milliseconds once we hit Sort until the buffer is empty

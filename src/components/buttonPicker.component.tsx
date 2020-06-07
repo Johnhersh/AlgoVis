@@ -16,6 +16,7 @@ export default function ButtonPicker(props: any) {
     >
       <option value="mergesort">Merge Sort</option>
       <option value="quicksort">Quick Sort</option>
+      <option value="bubblesort">Bubble Sort</option>
     </select>
   );
 }
