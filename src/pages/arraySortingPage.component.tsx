@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import BarChart from "../components/barChart.component";
 import Button from "../components/button.component";
 import ButtonPicker from "../components/buttonPicker.component";
-import {
-  iterativeMergeSort,
-  quickSort,
-  bubbleSort,
-} from "../algorithms/sortingAlgorithms";
+import { iterativeMergeSort, quickSort, bubbleSort } from "../algorithms/sortingAlgorithms";
 
 import "./arraySortingPage.styles.scss";
 
@@ -43,10 +39,7 @@ export default function ArraySortingPage() {
         refreshTimer = window.setInterval(() => {
           updateChart(1);
         }, 70);
-        sortedArray = iterativeMergeSort(
-          getNumbersOnlyArray(items),
-          updateItems
-        );
+        sortedArray = iterativeMergeSort(getNumbersOnlyArray(items), updateItems);
         break;
       case "bubblesort":
         refreshTimer = window.setInterval(() => {
@@ -72,8 +65,7 @@ export default function ArraySortingPage() {
 
     for (let i = 0; i < amount; i++) {
       if (barchartItemsBuffer.length > 0) {
-        tempArray[barchartItemsBuffer[0].index].value =
-          barchartItemsBuffer[0].value;
+        tempArray[barchartItemsBuffer[0].index].value = barchartItemsBuffer[0].value;
 
         setItems(tempArray);
         barchartItemsBuffer.shift();
@@ -91,10 +83,7 @@ export default function ArraySortingPage() {
       <div className="buttonsContainer">
         <Button text={"Reset"} onPress={onReset} />
         <Button text={"Sort"} onPress={onSort} />
-        <ButtonPicker
-          currentSelection={algoPicker}
-          updatePickFunction={setAlgoPicker}
-        />
+        <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker} />
       </div>
     </div>
   );
