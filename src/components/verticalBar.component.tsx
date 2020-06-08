@@ -11,13 +11,10 @@ export default function VerticalBar(props: any) {
     height: newHeight,
   };
 
-  useEffect(() => {
-    console.log("Added a bar with maxvalue: " + props.maxValue);
-  });
-
   return (
-    <div className="verticalBarContainer" style={barStyle}>
+    <div className="verticalBarContainer">
       <p className="verticalBarText">{props.value}</p>
+      <div className="verticalBarGradient" style={barStyle} />
     </div>
   );
 }
