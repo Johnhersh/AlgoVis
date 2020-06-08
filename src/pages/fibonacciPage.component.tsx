@@ -15,8 +15,8 @@ export default function FibonacciPage() {
   var refreshTimer: number;
 
   function onCalc() {
-    fibonacciSequenceBuffer = [0, 1];
-    setSequence([]);
+    fibonacciSequenceBuffer = [];
+    setSequence([{ id: 0, value: 0 }]);
     fibonacciSum(nValue, receieveUpdateItems);
 
     refreshTimer = window.setInterval(() => {
@@ -38,11 +38,9 @@ export default function FibonacciPage() {
   function updateChart() {
     setSequence((sequence) => [
       ...sequence,
-      {
-        value: fibonacciSequenceBuffer[0],
-        id: sequence.length,
-      },
+      { value: fibonacciSequenceBuffer[0], id: sequence.length },
     ]); // Add the first value into sequence
+
     fibonacciSequenceBuffer.shift();
 
     if (fibonacciSequenceBuffer.length == 0) clearInterval(refreshTimer);
