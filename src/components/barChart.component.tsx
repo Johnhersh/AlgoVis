@@ -12,6 +12,7 @@ export default function BarChart(props: any) {
             value={item.value}
             key={item.id}
             maxValue={props.maxValue}
+            animSpeed={props.candleAnimSpeed}
           />
         ))}
       </div>
