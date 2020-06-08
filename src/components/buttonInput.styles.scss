@@ -1,0 +1,12 @@
+.buttonInputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%; // This is so the buttonInputField can use a percentage height which will be a percentage of this
+}
+
+.buttonInputField {
+  width: 40%;
+  height: 60%;
+}
