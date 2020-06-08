@@ -81,9 +81,11 @@ export default function ArraySortingPage() {
         <BarChart workArray={items} maxValue={100} />
       </div>
       <div className="buttonsContainer">
+        <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} />
         <Button text={"Sort"} onPress={onSort} />
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker} />
+        <div style={{ flex: 1 }} />
       </div>
     </div>
   );
