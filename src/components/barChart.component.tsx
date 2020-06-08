@@ -8,7 +8,11 @@ export default function BarChart(props: any) {
     <div className="barChartContainer">
       <div className="listContentContainer">
         {props.workArray.map((item: any) => (
-          <VerticalBar value={item.value} key={item.id} />
+          <VerticalBar
+            value={item.value}
+            key={item.id}
+            maxValue={props.maxValue}
+          />
         ))}
       </div>
     </div>
