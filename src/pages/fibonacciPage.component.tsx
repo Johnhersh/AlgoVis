@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import "./fibonacciPage.styles.scss";
 import BarChart from "../components/barChart.component";
 import { fibonacciSum } from "../algorithms/fibonacci";
 import Button from "../components/button.component";
@@ -48,7 +49,7 @@ export default function FibonacciPage() {
       <div className="fibonacciResultContainer">
         <BarChart workArray={sequence} maxValue={maxValue} />
       </div>
-      <div className="buttonsContainer">
+      <div className="fibonacciButtonsContainer">
         <Button text={"Calculate"} onPress={onCalc} />
       </div>
     </div>

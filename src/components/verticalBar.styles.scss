@@ -2,6 +2,12 @@
 
 .verticalBarContainer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verticalBarGradient {
+  display: flex;
   margin: 5px;
   width: 50px;
   background: linear-gradient($primary, $highlight);
@@ -11,6 +17,6 @@
 }
 
 .verticalBarText {
-  padding-top: 5;
-  color: white;
+  color: $dark;
+  margin-bottom: 0;
 }
