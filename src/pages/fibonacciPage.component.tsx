@@ -8,13 +8,16 @@ import ButtonInput from "../components/buttonInput.component";
 
 export default function FibonacciPage() {
   const [sequence, setSequence] = useState<Array<{ id: number; value: number }>>([]);
+  const [nValue, setNvalue] = useState(8);
   const [maxValue, setMaxValue] = useState(1);
 
   var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into. Always want to start a fibonacci sequence with 0,1
   var refreshTimer: number;
 
   function onCalc() {
-    fibonacciSum(25, receieveUpdateItems);
+    fibonacciSequenceBuffer = [0, 1];
+    setSequence([]);
+    fibonacciSum(nValue, receieveUpdateItems);
 
     refreshTimer = window.setInterval(() => {
       updateChart();
@@ -45,14 +48,20 @@ export default function FibonacciPage() {
     if (fibonacciSequenceBuffer.length == 0) clearInterval(refreshTimer);
   }
 
+  function onNewNth(event: any) {
+    setNvalue(event.target.value);
+  }
+
   return (
     <div className="fibonacciPageContainer">
       <div className="fibonacciResultContainer">
         <BarChart workArray={sequence} maxValue={maxValue} />
       </div>
       <div className="fibonacciButtonsContainer">
+        <div style={{ flex: 1 }} />
         <Button text={"Calculate"} onPress={onCalc} />
-        <ButtonInput />
+        <ButtonInput onChange={onNewNth} value={nValue} />
+        <div style={{ flex: 1 }} />
       </div>
     </div>
   );
