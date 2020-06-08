@@ -86,7 +86,7 @@ export default function ArraySortingPage() {
   return (
     <div className="arraySortingPageContainer">
       <div className="barChartComponentContainer">
-        <BarChart workArray={items} />
+        <BarChart workArray={items} maxValue={100} />
       </div>
       <div className="buttonsContainer">
         <Button text={"Reset"} onPress={onReset} />
