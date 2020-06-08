@@ -5,12 +5,10 @@ import { fibonacciSum } from "../algorithms/fibonacci";
 import Button from "../components/button.component";
 
 export default function FibonacciPage() {
-  const [sequence, setSequence] = useState<
-    Array<{ id: number; value: number }>
-  >([]); // Always want to start a fibonacci sequence with 0,1
+  const [sequence, setSequence] = useState<Array<{ id: number; value: number }>>([]);
   const [maxValue, setMaxValue] = useState(1);
 
-  var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into
+  var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into. Always want to start a fibonacci sequence with 0,1
   var refreshTimer: number;
 
   function onCalc() {
@@ -35,7 +33,10 @@ export default function FibonacciPage() {
   function updateChart() {
     setSequence((sequence) => [
       ...sequence,
-      { value: fibonacciSequenceBuffer[0], id: sequence.length },
+      {
+        value: fibonacciSequenceBuffer[0],
+        id: sequence.length,
+      },
     ]); // Add the first value into sequence
     fibonacciSequenceBuffer.shift();
 
