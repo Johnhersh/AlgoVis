@@ -8,7 +8,12 @@ export default function ButtonInput(props: any) {
     <form className="buttonContainer" onClick={props.onPress}>
       <div className="buttonInputContainer">
         <p>Nth :</p>
-        <input type="number" className="buttonInputField"></input>
+        <input
+          type="number"
+          className="buttonInputField"
+          onChange={props.onChange}
+          value={props.value}
+        ></input>
       </div>
     </form>
   );
