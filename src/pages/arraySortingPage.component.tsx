@@ -78,7 +78,7 @@ export default function ArraySortingPage() {
   return (
     <div className="arraySortingPageContainer">
       <div className="barChartComponentContainer">
-        <BarChart workArray={items} maxValue={100} />
+        <BarChart workArray={items} maxValue={100} candleAnimSpeed={0.1} />
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />

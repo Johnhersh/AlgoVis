@@ -53,7 +53,7 @@ export default function FibonacciPage() {
   return (
     <div className="fibonacciPageContainer">
       <div className="fibonacciResultContainer">
-        <BarChart workArray={sequence} maxValue={maxValue} />
+        <BarChart workArray={sequence} maxValue={maxValue} candleAnimSpeed={1} />
       </div>
       <div className="fibonacciButtonsContainer">
         <div style={{ flex: 1 }} />
