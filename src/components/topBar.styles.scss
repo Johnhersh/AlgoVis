@@ -3,4 +3,29 @@
 .topBarContainer {
   display: flex;
   background-color: $primary;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navLinksContainer {
+  display: flex;
+  flex: 1;
+  margin-right: 50px;
+}
+
+.linkItem {
+  margin-left: 10px;
+  list-style: none;
+  font-size: larger;
+}
+
+.navLink {
+  color: black;
+  transition: 0.2s;
+  &.navLinkActive {
+    color: white;
+  }
+  &:hover {
+    color: white;
+  }
 }
