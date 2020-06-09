@@ -9,13 +9,18 @@ export default function TopBar(props: any) {
       <nav>
         <ul className="navLinksContainer">
           <li className="linkItem">
-            <NavLink to="/sorting" className="navLink" activeClassName="navLinkActive">
-              Sorting
+            <NavLink to="/twosum" className="navLink" activeClassName="navLinkActive">
+              Two-Number Sum
             </NavLink>
           </li>
           <li className="linkItem">
             <NavLink to="/fibonacci" className="navLink" activeClassName="navLinkActive">
               Fibonacci
+            </NavLink>
+          </li>
+          <li className="linkItem">
+            <NavLink to="/sorting" className="navLink" activeClassName="navLinkActive">
+              Sorting
             </NavLink>
           </li>
         </ul>
