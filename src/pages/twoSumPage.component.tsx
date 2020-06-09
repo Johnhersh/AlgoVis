@@ -15,21 +15,27 @@ export default function FibonacciPage() {
   function onReset() {
     setItems(newRandomArray(desiredAmountOfValues));
   }
+
   function onFind() {
+    checkTwoSum(searchNumber);
+  }
+
+  function onNewSearchNumber(event: any) {
+    const newSearchNumber = event.target.value;
+    setSearchNumber(newSearchNumber);
+    checkTwoSum(newSearchNumber);
+  }
+
+  function checkTwoSum(target: number) {
     let sortedArray: Array<number> = [];
     sortedArray = getNumbersOnlyArray(items);
-    let result = twoSum(sortedArray, 20, () => {});
-
+    let result = twoSum(sortedArray, target, () => {});
     // If we found nothing:
     if (result.a == 0 && result.b == 0) {
       console.log("No Match!");
     } else {
       console.log("Found numbers: " + result.a + ", " + result.b);
     }
-  }
-
-  function onNewSearchNumber(event: any) {
-    setSearchNumber(event.target.value);
   }
 
   return (
