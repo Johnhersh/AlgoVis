@@ -8,7 +8,7 @@ export function twoSum(array: Array<number>, target: number, updateVisualsFuncti
     while (left < right){
         if (array[left] + array[right] == target) {
             return { a: array[left], b: array[right]};
-        }else if (array [left] + array[right] < target) {
+        }else if (array[left] + array[right] < target) {
                 left++;
             } else {
                 right--;
