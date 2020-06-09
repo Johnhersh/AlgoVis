@@ -7,8 +7,8 @@ import { twoSum } from "../algorithms/twoSum";
 import Button from "../components/button.component";
 import ButtonInput from "../components/buttonInput.component";
 
-export default function FibonacciPage() {
-  const [desiredAmountOfValues, setNumberOfValues] = useState(15);
+export default function TwoSumPage() {
+  const desiredAmountOfValues = 18;
   const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
   const [searchNumber, setSearchNumber] = useState(0);
 
@@ -31,7 +31,7 @@ export default function FibonacciPage() {
     sortedArray = getNumbersOnlyArray(items);
     let result = twoSum(sortedArray, target, () => {});
     // If we found nothing:
-    if (result.a == 0 && result.b == 0) {
+    if (result.a === 0 && result.b === 0) {
       console.log("No Match!");
     } else {
       console.log("Found numbers: " + result.a + ", " + result.b);

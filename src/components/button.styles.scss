@@ -11,7 +11,7 @@
   box-shadow: 10px 10px 7px $shadow;
   border-radius: 30px;
   border-width: 0px;
-  transition: max-width 0.7s;
+  transition: min-width 0.7s;
 }
 
 .buttonContainer:focus {
@@ -21,5 +21,5 @@
 .buttonContainer:hover {
   outline: none;
   background: linear-gradient($highlight, $primary);
-  max-width: 160px;
+  min-width: 180px;
 }
