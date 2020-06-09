@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./homepage.styles.scss";
 import TopBar from "../components/topBar.component";
@@ -10,21 +10,7 @@ export default function HomePage(props: any) {
   return (
     <div className="homePageContainer">
       <Router>
-        <TopBar>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/sorting">Sorting</Link>
-              </li>
-              <li>
-                <Link to="/fibonacci">Fibonacci</Link>
-              </li>
-            </ul>
-          </nav>
-        </TopBar>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+        <TopBar />
         <Switch>
           <Route path="/sorting">
             <ArraySortingPage />
@@ -33,7 +19,6 @@ export default function HomePage(props: any) {
             <FibonacciPage />
           </Route>
         </Switch>
-        {/* <div className="arrayPageContainer"></div> */}
       </Router>
     </div>
   );
