@@ -5,6 +5,7 @@ import "./homepage.styles.scss";
 import TopBar from "../components/topBar.component";
 import ArraySortingPage from "./arraySortingPage.component";
 import FibonacciPage from "./fibonacciPage.component";
+import TwoSum from "./twoSumPage.component";
 
 export default function HomePage(props: any) {
   return (
@@ -17,6 +18,9 @@ export default function HomePage(props: any) {
           </Route>
           <Route path="/fibonacci">
             <FibonacciPage />
+          </Route>
+          <Route path="/twosum">
+            <TwoSum />
           </Route>
         </Switch>
       </Router>
