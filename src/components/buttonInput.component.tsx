@@ -7,7 +7,7 @@ export default function ButtonInput(props: any) {
   return (
     <form className="buttonContainer" onClick={props.onPress}>
       <div className="buttonInputContainer">
-        <p>Nth :</p>
+        <p>{props.children}</p>
         <input
           type="number"
           className="buttonInputField"

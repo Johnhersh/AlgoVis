@@ -10,6 +10,7 @@ import ButtonInput from "../components/buttonInput.component";
 export default function FibonacciPage() {
   const [desiredAmountOfValues, setNumberOfValues] = useState(15);
   const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
+  const [searchNumber, setSearchNumber] = useState(0);
 
   function onReset() {
     setItems(newRandomArray(desiredAmountOfValues));
@@ -27,6 +28,10 @@ export default function FibonacciPage() {
     }
   }
 
+  function onNewSearchNumber(event: any) {
+    setSearchNumber(event.target.value);
+  }
+
   return (
     <div className="twoSumPageContainer">
       <div className="twoSumResultContainer">
@@ -36,6 +41,9 @@ export default function FibonacciPage() {
         <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} />
         <Button text={"Find"} onPress={onFind} />
+        <ButtonInput onChange={onNewSearchNumber} value={searchNumber}>
+          Search for:
+        </ButtonInput>
         <div style={{ flex: 1 }} />
       </div>
     </div>

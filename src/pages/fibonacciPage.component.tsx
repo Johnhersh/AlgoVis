@@ -58,7 +58,9 @@ export default function FibonacciPage() {
       <div className="fibonacciButtonsContainer">
         <div style={{ flex: 1 }} />
         <Button text={"Calculate"} onPress={onCalc} />
-        <ButtonInput onChange={onNewNth} value={nValue} />
+        <ButtonInput onChange={onNewNth} value={nValue}>
+          Nth:
+        </ButtonInput>
         <div style={{ flex: 1 }} />
       </div>
     </div>
