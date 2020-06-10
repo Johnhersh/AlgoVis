@@ -13,6 +13,7 @@ export default function ButtonInput(props: any) {
           className="buttonInputField"
           onChange={props.onChange}
           value={props.value}
+          disabled={props.disabled}
         ></input>
       </div>
     </form>
