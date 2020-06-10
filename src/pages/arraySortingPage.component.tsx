@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BarChart from "../components/barChart.component";
 import Button from "../components/button.component";
 import ButtonPicker from "../components/buttonPicker.component";
+import ButtonInput from "../components/buttonInput.component";
 import { iterativeMergeSort, quickSort, bubbleSort } from "../algorithms/sortingAlgorithms";
 
 import "./arraySortingPage.styles.scss";
@@ -76,6 +77,11 @@ export default function ArraySortingPage() {
     }
   }
 
+  function onNewLength(event: any) {
+    setNumberOfValues(event.target.value);
+    onReset();
+  }
+
   return (
     <div className="arraySortingPageContainer">
       <div className="barChartComponentContainer">
@@ -86,6 +92,9 @@ export default function ArraySortingPage() {
         <Button text={"Reset"} onPress={onReset} />
         <Button text={"Sort"} onPress={onSort} />
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker} />
+        <ButtonInput onChange={onNewLength} value={desiredAmountOfValues}>
+          Length:
+        </ButtonInput>
         <div style={{ flex: 1 }} />
       </div>
     </div>
