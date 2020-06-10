@@ -13,6 +13,7 @@ export default function ArraySortingPage() {
   const [desiredAmountOfValues, setNumberOfValues] = useState(15);
   const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
   const [algoPicker, setAlgoPicker] = useState("quicksort"); // Can be: 'quicksort', 'mergesort', 'bubblesort'
+  const [bDisableButtons, setDisableButtons] = useState(false);
 
   var barchartItemsBuffer: {
     index: number;
@@ -22,13 +23,17 @@ export default function ArraySortingPage() {
 
   // Gets passed down to the reset button component and called from there
   function onReset() {
+    setDisableButtons(true);
     setItems(newRandomArray(desiredAmountOfValues));
+    setTimeout(() => {
+      setDisableButtons(false);
+    }, 1000);
   }
 
   // Gets passed down to the sort button and called from there
   function onSort() {
-    console.log("Algosort is: " + algoPicker);
     let sortedArray: Array<number> = [];
+    setDisableButtons(true);
     switch (algoPicker) {
       case "quicksort":
         refreshTimer = window.setInterval(() => {
@@ -73,6 +78,7 @@ export default function ArraySortingPage() {
         barchartItemsBuffer.shift();
       } else {
         clearInterval(refreshTimer);
+        setDisableButtons(false);
       }
     }
   }
@@ -89,10 +95,14 @@ export default function ArraySortingPage() {
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />
-        <Button text={"Reset"} onPress={onReset} />
-        <Button text={"Sort"} onPress={onSort} />
+        <Button text={"Reset"} onPress={onReset} disabled={bDisableButtons} />
+        <Button text={"Sort"} onPress={onSort} disabled={bDisableButtons} />
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker} />
-        <ButtonInput onChange={onNewLength} value={desiredAmountOfValues}>
+        <ButtonInput
+          onChange={onNewLength}
+          value={desiredAmountOfValues}
+          disabled={bDisableButtons}
+        >
           Length:
         </ButtonInput>
         <div style={{ flex: 1 }} />

@@ -10,6 +10,7 @@ export default function FibonacciPage() {
   const [sequence, setSequence] = useState<Array<{ id: number; value: number }>>([]);
   const [nValue, setNvalue] = useState(8);
   const [maxValue, setMaxValue] = useState(1);
+  const [bDisableButtons, setDisableButtons] = useState(false);
 
   var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into. Always want to start a fibonacci sequence with 0,1
   var refreshTimer: number;
@@ -20,6 +21,7 @@ export default function FibonacciPage() {
   }, []);
 
   function onCalc() {
+    setDisableButtons(true);
     fibonacciSequenceBuffer = [];
     setSequence([{ id: 0, value: 0 }]);
     fibonacciSum(nValue, receieveUpdateItems);
@@ -48,11 +50,15 @@ export default function FibonacciPage() {
 
     fibonacciSequenceBuffer.shift();
 
-    if (fibonacciSequenceBuffer.length == 0) clearInterval(refreshTimer);
+    if (fibonacciSequenceBuffer.length == 0) {
+      clearInterval(refreshTimer);
+      setTimeout(() => {
+        setDisableButtons(false);
+      }, 1000);
+    }
   }
 
   function onNewNth(event: any) {
-    // Todo: Make this disable the button until we're done showing the new result
     setNvalue(event.target.value);
     onCalc();
   }
@@ -64,8 +70,8 @@ export default function FibonacciPage() {
       </div>
       <div className="fibonacciButtonsContainer">
         <div style={{ flex: 1 }} />
-        <Button text={"Calculate"} onPress={onCalc} />
-        <ButtonInput onChange={onNewNth} value={nValue}>
+        <Button text={"Calculate"} onPress={onCalc} disabled={bDisableButtons} />
+        <ButtonInput onChange={onNewNth} value={nValue} disabled={bDisableButtons}>
           Nth:
         </ButtonInput>
         <div style={{ flex: 1 }} />

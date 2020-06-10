@@ -12,6 +12,9 @@
   border-radius: 30px;
   border-width: 0px;
   transition: min-width 0.7s;
+  &:disabled {
+    background: linear-gradient($textdark, $dark);
+  }
 }
 
 .buttonContainer:focus {
@@ -20,6 +23,6 @@
 
 .buttonContainer:hover {
   outline: none;
-  background: linear-gradient($highlight, $primary);
+  background: linear-gradient($highlight, $highlightdark);
   min-width: 180px;
 }
