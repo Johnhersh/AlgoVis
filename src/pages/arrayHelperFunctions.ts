@@ -16,3 +16,11 @@ export function newRandomArray(length: number) {
 
   return newArray;
 }
+
+export function convertNumbersOnlyArrayToObjectArray(items: Array<number>){
+    const newItems: Array<{ id: number; value: number }> = [];
+    for (let index=0; index < items.length; index++){
+        newItems.push({ id: index, value:items[index]});
+    }
+    return newItems;
+}
