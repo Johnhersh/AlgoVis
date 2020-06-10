@@ -16,7 +16,7 @@ export default function VerticalBar(props: any) {
 
   return (
     <div className="verticalBarContainer">
-      <p className="verticalBarText">{props.value}</p>
+      {props.value > 0 && <p className="verticalBarText">{props.value}</p>}
       <div className="verticalBarGradient" style={{ height: height, transition: transition }} />
     </div>
   );
