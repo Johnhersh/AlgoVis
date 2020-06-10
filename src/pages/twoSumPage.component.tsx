@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import "./twoSumPage.styles.scss";
-import { getNumbersOnlyArray, newRandomArray } from "./arrayHelperFunctions";
+import {
+  getNumbersOnlyArray,
+  newRandomArray,
+  convertNumbersOnlyArrayToObjectArray,
+} from "./arrayHelperFunctions";
 import BarChart from "../components/barChart.component";
 import { twoSum } from "../algorithms/twoSum";
 import Button from "../components/button.component";
@@ -9,11 +13,19 @@ import ButtonInput from "../components/buttonInput.component";
 
 export default function TwoSumPage() {
   const desiredAmountOfValues = 18;
-  const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
+  const [items, setItems] = useState<Array<{ id: number; value: number }>>([]);
+  const [oldItems, setOldItems] = useState<Array<number>>([]); // I needed to save this as state so it persists between refreshes
   const [searchNumber, setSearchNumber] = useState(0);
 
+  // Gets called only once on mount because of [] second argument
+  useEffect(() => {
+    onReset();
+  }, []);
+
   function onReset() {
-    setItems(newRandomArray(desiredAmountOfValues));
+    const newArray = newRandomArray(desiredAmountOfValues);
+    setOldItems(getNumbersOnlyArray(newArray));
+    setItems(newArray);
   }
 
   function onFind() {
@@ -22,18 +34,27 @@ export default function TwoSumPage() {
 
   function onNewSearchNumber(event: any) {
     const newSearchNumber = event.target.value;
+
     setSearchNumber(newSearchNumber);
     checkTwoSum(newSearchNumber);
   }
 
   function checkTwoSum(target: number) {
-    let sortedArray: Array<number> = [];
-    sortedArray = getNumbersOnlyArray(items);
-    let result = twoSum(sortedArray, target, () => {});
+    let tempArray: Array<number> = [];
+    tempArray = getNumbersOnlyArray(items);
+    let result = twoSum(tempArray, target, () => {});
+
     // If we found nothing:
     if (result.a === 0 && result.b === 0) {
-      console.log("No Match!");
+      setItems(convertNumbersOnlyArrayToObjectArray(oldItems));
     } else {
+      const filteredItems = [...items];
+      for (let index = 0; index < items.length; index++) {
+        if (!(items[index].value == result.a || items[index].value == result.b)) {
+          filteredItems[index].value = 0;
+        }
+        setItems(filteredItems);
+      }
       console.log("Found numbers: " + result.a + ", " + result.b);
     }
   }
