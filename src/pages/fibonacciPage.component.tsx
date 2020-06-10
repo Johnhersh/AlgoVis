@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./fibonacciPage.styles.scss";
 import BarChart from "../components/barChart.component";
@@ -13,6 +13,11 @@ export default function FibonacciPage() {
 
   var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into. Always want to start a fibonacci sequence with 0,1
   var refreshTimer: number;
+
+  // Gets called only once on mount because of [] second argument
+  useEffect(() => {
+    onCalc();
+  }, []);
 
   function onCalc() {
     fibonacciSequenceBuffer = [];
@@ -47,7 +52,9 @@ export default function FibonacciPage() {
   }
 
   function onNewNth(event: any) {
+    // Todo: Make this disable the button until we're done showing the new result
     setNvalue(event.target.value);
+    onCalc();
   }
 
   return (
