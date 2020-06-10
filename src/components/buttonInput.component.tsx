@@ -11,6 +11,7 @@ export default function ButtonInput(props: any) {
         <input
           type="number"
           className="buttonInputField"
+          onBlur={props.onLoseFocus}
           onChange={props.onChange}
           value={props.value}
           disabled={props.disabled}
