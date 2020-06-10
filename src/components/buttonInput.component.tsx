@@ -5,7 +5,7 @@ import "./button.styles.scss";
 
 export default function ButtonInput(props: any) {
   return (
-    <form className="buttonContainer" onClick={props.onPress}>
+    <form data-disabled={props.disabled} className="buttonContainer" onClick={props.onPress}>
       <div className="buttonInputContainer">
         <p>{props.children}</p>
         <input
