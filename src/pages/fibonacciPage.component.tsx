@@ -60,7 +60,18 @@ export default function FibonacciPage() {
 
   function onNewNth(event: any) {
     setNvalue(event.target.value);
-    onCalc();
+  }
+
+  function onLoseFocus() {
+    if (nValue < 3) {
+      setNvalue(3);
+      return;
+    }
+    if (nValue > 30) {
+      setNvalue(30);
+      return;
+    }
+    if (nValue > 1 && nValue < 30) onCalc();
   }
 
   return (
@@ -71,7 +82,12 @@ export default function FibonacciPage() {
       <div className="fibonacciButtonsContainer">
         <div style={{ flex: 1 }} />
         <Button text={"Calculate"} onPress={onCalc} disabled={bDisableButtons} />
-        <ButtonInput onChange={onNewNth} value={nValue} disabled={bDisableButtons}>
+        <ButtonInput
+          onChange={onNewNth}
+          onLoseFocus={onLoseFocus}
+          value={nValue}
+          disabled={bDisableButtons}
+        >
           Nth:
         </ButtonInput>
         <div style={{ flex: 1 }} />
