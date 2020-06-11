@@ -1,8 +1,13 @@
 @import "../colors.scss";
 
 .buttonContainer {
-  max-width: 350px;
+  display: flex;
+  // max-width: 350px;
+  flex: 0;
+  align-items: center;
+  justify-content: center;
   min-width: 150px;
+  // width: 150px;
   height: 50px;
   margin: 0px 7px 0px 7px;
   background: linear-gradient($primary, $highlight);
@@ -24,7 +29,8 @@
 .buttonContainer:hover:not([data-disabled="true"]) {
   outline: none;
   background: linear-gradient($highlight, $highlightdark);
-  min-width: 180px;
+  // min-width: 180px;
+  width: 180px;
   &[data-disabled="true"] {
     background: linear-gradient($textdark, $dark);
   }

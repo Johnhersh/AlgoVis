@@ -8,6 +8,15 @@ import FibonacciPage from "./fibonacciPage.component";
 import TwoSum from "./twoSumPage.component";
 
 export default function HomePage(props: any) {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+  window.addEventListener("resize", () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
+
   return (
     <div className="homePageContainer">
       <Router>
