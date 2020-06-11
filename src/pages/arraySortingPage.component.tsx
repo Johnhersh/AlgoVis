@@ -28,6 +28,17 @@ export default function ArraySortingPage() {
     setTimeout(() => {
       setDisableButtons(false);
     }, 1000);
+
+    setMouseWheelScrollHorizontal();
+  }
+
+  function setMouseWheelScrollHorizontal() {
+    let item = document.getElementsByClassName("barChartComponentContainer")[0];
+
+    window.addEventListener("wheel", function (e) {
+      if (e.deltaY > 0) item.scrollLeft += 100;
+      else item.scrollLeft -= 100;
+    });
   }
 
   // Gets passed down to the sort button and called from there
@@ -85,7 +96,18 @@ export default function ArraySortingPage() {
 
   function onNewLength(event: any) {
     setNumberOfValues(event.target.value);
-    onReset();
+  }
+
+  function onLoseFocus() {
+    if (desiredAmountOfValues < 3) {
+      setNumberOfValues(3);
+      return;
+    }
+    if (desiredAmountOfValues > 50) {
+      setNumberOfValues(50);
+      return;
+    }
+    if (desiredAmountOfValues > 1 && desiredAmountOfValues < 50) onReset();
   }
 
   return (
@@ -102,6 +124,7 @@ export default function ArraySortingPage() {
           onChange={onNewLength}
           value={desiredAmountOfValues}
           disabled={bDisableButtons}
+          onLoseFocus={onLoseFocus}
         >
           Length:
         </ButtonInput>
