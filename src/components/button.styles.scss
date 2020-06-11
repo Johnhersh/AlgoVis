@@ -27,8 +27,7 @@
 .buttonContainer:hover:not([data-disabled="true"]) {
   outline: none;
   background: linear-gradient($highlight, $highlightdark);
-  // min-width: 180px;
-  width: 180px;
+  min-width: 180px;
   &[data-disabled="true"] {
     background: linear-gradient($textdark, $dark);
   }
