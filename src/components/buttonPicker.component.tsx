@@ -12,7 +12,8 @@ export default function ButtonPicker(props: any) {
     <select
       onChange={updateParentState}
       value={props.currentSelection}
-      className="buttonPickerContainer"
+      className="buttonContainer"
+      style={{ paddingLeft: 5, paddingRight: 5 }}
     >
       <option value="mergesort">Merge Sort</option>
       <option value="quicksort">Quick Sort</option>
