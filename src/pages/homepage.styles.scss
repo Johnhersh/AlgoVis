@@ -9,8 +9,10 @@
 .buttonsContainer {
   display: flex;
   flex: 1;
-  min-height: 70px;
+  min-height: 50px;
+  max-height: 50px;
   overflow-x: scroll;
   flex-direction: row;
   align-items: center;
+  padding-bottom: 20px;
 }
