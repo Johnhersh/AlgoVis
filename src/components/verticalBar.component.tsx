@@ -12,7 +12,6 @@ export default function VerticalBar(props: any) {
 
   function updateHeight() {
     setHeight((props.value / props.maxValue) * 400);
-    console.log();
   }
 
   return (
