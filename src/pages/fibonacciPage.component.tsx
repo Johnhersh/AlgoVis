@@ -8,7 +8,7 @@ import ButtonInput from "../components/buttonInput.component";
 
 export default function FibonacciPage() {
   const [sequence, setSequence] = useState<Array<{ id: number; value: number }>>([]);
-  const [nValue, setNvalue] = useState(8);
+  const [nValue, setNvalue] = useState(14);
   const [maxValue, setMaxValue] = useState(1);
   const [bDisableButtons, setDisableButtons] = useState(false);
 
