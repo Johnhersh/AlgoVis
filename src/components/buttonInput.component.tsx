@@ -10,6 +10,7 @@ export default function ButtonInput(props: any) {
         <p>{props.children}</p>
         <input
           type="number"
+          pattern="[0-9]*"
           className="buttonInputField"
           onBlur={props.onLoseFocus}
           onChange={props.onChange}
