@@ -10,7 +10,7 @@ import "./arraySortingPage.styles.scss";
 import { getNumbersOnlyArray, newRandomArray } from "./arrayHelperFunctions";
 
 export default function ArraySortingPage() {
-  const [desiredAmountOfValues, setNumberOfValues] = useState(15);
+  const [desiredAmountOfValues, setDesiredNumberOfValues] = useState(15);
   const [items, setItems] = useState(newRandomArray(desiredAmountOfValues));
   const [algoPicker, setAlgoPicker] = useState("quicksort"); // Can be: 'quicksort', 'mergesort', 'bubblesort'
   const [bDisableButtons, setDisableButtons] = useState(false);
@@ -95,16 +95,16 @@ export default function ArraySortingPage() {
   }
 
   function onNewLength(event: any) {
-    setNumberOfValues(event.target.value);
+    setDesiredNumberOfValues(event.target.value);
   }
 
   function onLoseFocus() {
     if (desiredAmountOfValues < 3) {
-      setNumberOfValues(3);
+      setDesiredNumberOfValues(3);
       return;
     }
     if (desiredAmountOfValues > 50) {
-      setNumberOfValues(50);
+      setDesiredNumberOfValues(50);
       return;
     }
     if (desiredAmountOfValues > 1 && desiredAmountOfValues < 50) onReset();

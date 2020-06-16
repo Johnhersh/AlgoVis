@@ -10,7 +10,7 @@ export default function ButtonInput(props: any) {
         <p>{props.children}</p>
         <input
           type="number"
-          pattern="[0-9]*"
+          pattern="[0-9]*" // This is so iOS detects it as a numerical input
           className="buttonInputField"
           onBlur={props.onLoseFocus}
           onChange={props.onChange}
