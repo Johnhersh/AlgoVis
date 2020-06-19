@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 
 import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
-import Button from "../components/button.component";
 import ButtonStringInput from "../components/buttonStringInput.component";
 
 export default function PalindromePage() {
@@ -11,8 +10,6 @@ export default function PalindromePage() {
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
   }
-  function onReset() {}
-  function onFind() {}
 
   return (
     <div className="palindromePageContainer">
@@ -21,8 +18,6 @@ export default function PalindromePage() {
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />
-        <Button text={"Reset"} onPress={onReset} />
-        <Button text={"Find"} onPress={onFind} />
         <ButtonStringInput onChange={onWordUpdate} value={currentCheckString}>
           Word:
         </ButtonStringInput>
