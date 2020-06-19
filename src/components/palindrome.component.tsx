@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
-export default function Palindrome() {
-  return <div className="palindromeContainer">Palindrome word #1</div>;
+import "./palindrome.styles.scss";
+
+export default function Palindrome(props: any) {
+  return <div className="palindromeContainer">{props.checkWord}</div>;
 }
