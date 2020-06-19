@@ -9,6 +9,11 @@ export default function TopBar(props: any) {
       <nav>
         <ul className="navLinksContainer">
           <li className="linkItem">
+            <NavLink to="/palindrome" className="navLink" activeClassName="navLinkActive">
+              Palindrome
+            </NavLink>
+          </li>
+          <li className="linkItem">
             <NavLink to="/twosum" className="navLink" activeClassName="navLinkActive">
               Two-Number Sum
             </NavLink>
