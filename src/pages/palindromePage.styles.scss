@@ -1,0 +1,17 @@
+.palindromePageContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  //   align-items: center;
+  //   justify-content: center;
+}
+
+.palindromeResultContainer {
+  display: flex;
+  flex: 7;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+}
