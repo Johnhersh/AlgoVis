@@ -25,7 +25,7 @@ export default function ButtonStringInput(props: any) {
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
-          // onBlur={props.onLoseFocus}
+          onBlur={props.onLoseFocus}
           onChange={props.onChange}
           value={props.value}
           // disabled={props.disabled}
