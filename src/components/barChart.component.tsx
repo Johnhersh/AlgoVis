@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "./barChart.styles.scss";
 import VerticalBar from "./verticalBar.component";
