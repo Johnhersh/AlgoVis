@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 
 import "./palindrome.styles.scss";
 
@@ -9,22 +9,21 @@ interface Props {
 
 const Palindrome: React.FC<Props> = ({ palindromicCharactersArray, checkWord }) => {
   let textToRender = [];
-  console.log("length is: " + palindromicCharactersArray.length);
+  let color = "black";
+
   for (let index = 0; index < palindromicCharactersArray.length; index++) {
-    textToRender.push(<li style={{ display: "inline" }}>{checkWord.charAt(index)}</li>);
+    if (palindromicCharactersArray[index] === true) {
+      color = "green";
+    } else color = "black";
+
+    textToRender.push(
+      <li key={"palindromeCharacter" + index} style={{ display: "inline", color: color }}>
+        {checkWord.charAt(index)}
+      </li>
+    );
   }
 
   return <ul className="palindromeContainer">{textToRender}</ul>;
 };
 
 export default Palindrome;
-
-// export default function Palindrome({ palindromicCharactersArray, ...props }) {
-//   let textToRender = [];
-//   console.log("length is: " + palindromicCharactersArray.length);
-//   for (let index = 0; index < palindromicCharactersArray.length; index++) {
-//     textToRender.push(<li style={{ display: "inline" }}>A</li>);
-//   }
-
-//   return <ul className="palindromeContainer">{textToRender}</ul>;
-// }
