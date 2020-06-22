@@ -12,19 +12,24 @@ export default function PalindromePage() {
 
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
+
+    checkIfPalindrome(event.target.value);
   }
 
   function checkPalindrome() {
-    let result = isPalindrome(currentCheckString);
-    if (result) {
-      const tempCharacterStateArray: Array<boolean> = [];
-      for (let index = 0; index < currentCheckString.length; index++) {
+    checkIfPalindrome(currentCheckString);
+  }
+
+  function checkIfPalindrome(newString: string) {
+    const tempCharacterStateArray: Array<boolean> = [];
+    let result = isPalindrome(newString);
+
+    for (let index = 0; index < newString.length; index++) {
+      if (result) {
         tempCharacterStateArray.push(true);
-        console.log("At length: " + currentCheckString.length);
-      }
-      setPalindromicCharacters(tempCharacterStateArray);
+      } else tempCharacterStateArray.push(false);
     }
-    console.log("String is palindrome? : " + result);
+    setPalindromicCharacters(tempCharacterStateArray);
   }
 
   return (
