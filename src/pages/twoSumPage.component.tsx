@@ -50,7 +50,7 @@ export default function TwoSumPage() {
     } else {
       const filteredItems = [...items];
       for (let index = 0; index < items.length; index++) {
-        if (!(items[index].value == result.a || items[index].value == result.b)) {
+        if (!(items[index].value === result.a || items[index].value === result.b)) {
           filteredItems[index].value = 0;
         }
         setItems(filteredItems);
