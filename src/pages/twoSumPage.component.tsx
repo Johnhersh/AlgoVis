@@ -33,7 +33,7 @@ export default function TwoSumPage() {
   }
 
   function onNewSearchNumber(event: any) {
-    const newSearchNumber = event.target.value;
+    const newSearchNumber = Number(event.target.value);
 
     setSearchNumber(newSearchNumber);
     checkTwoSum(newSearchNumber);
