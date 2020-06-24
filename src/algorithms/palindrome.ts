@@ -74,30 +74,29 @@ babad
 s.length = 5
 */
 
-/**
- * @param {string} s
- * @return {string}
- */
-var longestPalindrome = function(s: string) {
-    if (s.length == 1) return s;
-    let longestPalindrome = s.charAt(0);
+export function longestPalindrome(checkString: string) {
+    let longestPalindrome = checkString.charAt(0);
+    let resultStartIndex = 0;
+    let resultEndIndex = 0;
+
+    if (checkString.length == 1) return {resultStartIndex,resultEndIndex};
     
-    for(let i=0; i<s.length; i++){
-        for(let j=0; j<s.length; j++){
-            let checkSubstring = s.slice(i,s.length-j);
+    for(let startIndex=0; startIndex<checkString.length; startIndex++){
+        for(let endIndex=0; endIndex<checkString.length; endIndex++){
+            let checkSubstring = checkString.slice(startIndex,checkString.length-endIndex);
             if (checkPalindrome(checkSubstring)){
-                // if (checkSubstring.length == s.length)
-                //     return checkSubstring;
                 if (checkSubstring.length > longestPalindrome.length) {
                     longestPalindrome = checkSubstring;
+                    resultStartIndex = startIndex;
+                    resultEndIndex = checkString.length-endIndex;
                     break;
                 }
             }
         }
-        if (longestPalindrome.length > (s.length-i))
+        if (longestPalindrome.length > (checkString.length-startIndex))
             break;
     }
-    return longestPalindrome;
+    return {resultStartIndex, resultEndIndex};
 };
 
 function checkPalindrome(s: string) {
