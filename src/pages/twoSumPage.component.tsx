@@ -33,7 +33,7 @@ export default function TwoSumPage() {
   }
 
   function onNewSearchNumber(event: any) {
-    const newSearchNumber = Number(event.target.value);
+    const newSearchNumber = Number(event.target.value); // I need to convert into a number because the twoSum algo fails if it gets a string
 
     setSearchNumber(newSearchNumber);
     checkTwoSum(newSearchNumber);
