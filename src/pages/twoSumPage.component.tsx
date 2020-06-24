@@ -9,7 +9,7 @@ import {
 import BarChart from "../components/barChart.component";
 import { twoSum } from "../algorithms/twoSum";
 import Button from "../components/button.component";
-import ButtonInput from "../components/buttonInput.component";
+import ButtonNumberInput from "../components/buttonNumberInput.component";
 
 export default function TwoSumPage() {
   const desiredAmountOfValues = 18;
@@ -67,9 +67,9 @@ export default function TwoSumPage() {
         <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} />
         <Button text={"Find"} onPress={onFind} />
-        <ButtonInput onChange={onNewSearchNumber} value={searchNumber}>
+        <ButtonNumberInput onChange={onNewSearchNumber} value={searchNumber} disabled={false}>
           Search for:
-        </ButtonInput>
+        </ButtonNumberInput>
         <div style={{ flex: 1 }} />
       </div>
     </div>

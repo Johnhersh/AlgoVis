@@ -4,7 +4,7 @@ import "./fibonacciPage.styles.scss";
 import BarChart from "../components/barChart.component";
 import { fibonacciSum } from "../algorithms/fibonacci";
 import Button from "../components/button.component";
-import ButtonInput from "../components/buttonInput.component";
+import ButtonInput from "../components/buttonNumberInput.component";
 
 export default function FibonacciPage() {
   const [sequence, setSequence] = useState<Array<{ id: number; value: number }>>([]);
