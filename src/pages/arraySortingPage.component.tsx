@@ -119,7 +119,11 @@ export default function ArraySortingPage() {
         <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} disabled={bDisableButtons} />
         <Button text={"Sort"} onPress={onSort} disabled={bDisableButtons} />
-        <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker} />
+        <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker}>
+          <option value="mergesort">Merge Sort</option>
+          <option value="quicksort">Quick Sort</option>
+          <option value="bubblesort">Bubble Sort</option>
+        </ButtonPicker>
         <ButtonNumberInput
           onChange={onNewLength}
           value={desiredAmountOfValues}

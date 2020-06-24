@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
 import ButtonStringInput from "../components/buttonStringInput.component";
+import ButtonPicker from "../components/buttonPicker.component";
 
 // TODO: re-implement isPalindrome and add a dropdown to differentiate between the two
 // import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
@@ -11,11 +12,10 @@ import { longestPalindrome } from "../algorithms/palindrome";
 export default function PalindromePage() {
   const [palindromicCharacters, setPalindromicCharacters] = useState<Array<boolean>>([false]);
   const [currentCheckString, setCurrentCheckString] = useState("");
+  const [algoPicker, setAlgoPicker] = useState("ispalindrome"); // Can be: 'ispalindrome', 'longest'
 
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
-
-    // Todo: Add support for longestPalindrome function.
 
     // checkIfPalindrome(event.target.value);
     checkLongestPalindrome(event.target.value);
@@ -60,6 +60,10 @@ export default function PalindromePage() {
         >
           Word:
         </ButtonStringInput>
+        <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker}>
+          <option value="ispalindrome">Is Palindrome?</option>
+          <option value="longest">Longest Palindrome</option>
+        </ButtonPicker>
         <div style={{ flex: 1 }} />
       </div>
     </div>
