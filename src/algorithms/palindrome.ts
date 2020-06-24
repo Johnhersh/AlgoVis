@@ -38,23 +38,19 @@ iterate through the array comparing the two
  *     this.next = (next===undefined ? null : next)
  * }
  */
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
-function isNumbersPalindrome (head: any) {
-    let array = getNumericalArray(head);
-    let endIndex = array.length;
-};
+// function isNumbersPalindrome (head: any) {
+//     let array = getNumericalArray(head);
+//     let endIndex = array.length;
+// };
 
-function getNumericalArray(head: any){
-    let array = [];
+// function getNumericalArray(head: any){
+//     let array = [];
 
-    while(head.next != null){
-        array.push(head.value);
-    }
-    return array;
-}
+//     while(head.next != null){
+//         array.push(head.value);
+//     }
+//     return array;
+// }
 
 
 
@@ -79,7 +75,7 @@ export function longestPalindrome(checkString: string) {
     let resultStartIndex = 0;
     let resultEndIndex = 0;
 
-    if (checkString.length == 1) return {resultStartIndex,resultEndIndex};
+    if (checkString.length === 1) return {resultStartIndex,resultEndIndex};
     
     for(let startIndex=0; startIndex<checkString.length; startIndex++){
         for(let endIndex=0; endIndex<checkString.length; endIndex++){
@@ -104,7 +100,7 @@ function checkPalindrome(s: string) {
     let endIndex = s.length-1;
     
     while(startIndex < endIndex) {
-        if (s.charAt(startIndex) == s.charAt(endIndex)){
+        if (s.charAt(startIndex) === s.charAt(endIndex)){
             startIndex++;
             endIndex--;
         } else return false;
@@ -128,28 +124,23 @@ dedabc -> cbaded
 The 'ded' part matches, so we need the rest of it, which will be the remainder of the flipped string
 */
 
-/**
- * @param {string} s
- * @return {string}
- */
-
-var shortestPalindrome = function(s: string) {
-    if (s.length == 0) return "";
+// var shortestPalindrome = function(s: string) {
+//     if (s.length == 0) return "";
     
-    let reversed = s.split("").reverse().join("");
-    let startSubstring = "";
-    let endSubstring = "";
+//     let reversed = s.split("").reverse().join("");
+//     let startSubstring = "";
+//     let endSubstring = "";
     
-    for (let index = 0; index < s.length; index++){
-        startSubstring = s.substring(0, s.length - index);
-        endSubstring = reversed.substring(index, reversed.length);
+//     for (let index = 0; index < s.length; index++){
+//         startSubstring = s.substring(0, s.length - index);
+//         endSubstring = reversed.substring(index, reversed.length);
         
-        if (startSubstring == endSubstring){
-            return reversed.substring(0, index)+s;
-        }
-    }
-    return "error";
-};
+//         if (startSubstring == endSubstring){
+//             return reversed.substring(0, index)+s;
+//         }
+//     }
+//     return "error";
+// };
 
 
 /**
@@ -183,21 +174,21 @@ In this case we can get rid of the right-most digit with Math.floor(123/10);
 
 So the end condition is if either 12 == 12 or if 12 == (123/10)*/
 
-function isIntegerPalindrome(x:number) {
-    if ( (((x%10) == 0)&&(x!=0)) || x<0) return false;
-    if (x<10) return true;
+// function isIntegerPalindrome(x:number) {
+//     if ( (((x%10) == 0)&&(x!=0)) || x<0) return false;
+//     if (x<10) return true;
     
-    let reversed = 0;
+//     let reversed = 0;
     
-    while(x > reversed){
-        reversed = reversed * 10;
-        reversed += x % 10;
+//     while(x > reversed){
+//         reversed = reversed * 10;
+//         reversed += x % 10;
         
-        x = Math.floor(x / 10); // remove the digit we just moved to reversed
-    }
+//         x = Math.floor(x / 10); // remove the digit we just moved to reversed
+//     }
     
-    if ((x == reversed) || (x == Math.floor(reversed/10)))
-        return true;
+//     if ((x == reversed) || (x == Math.floor(reversed/10)))
+//         return true;
     
-    return false;
-}
+//     return false;
+// }
