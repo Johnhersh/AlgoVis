@@ -55,7 +55,6 @@ export default function TwoSumPage() {
         }
         setItems(filteredItems);
       }
-      console.log("Found numbers: " + result.a + ", " + result.b);
     }
   }
 
