@@ -4,7 +4,7 @@ import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
 import ButtonStringInput from "../components/buttonStringInput.component";
 
-import { isPalindrome } from "../algorithms/palindrome";
+import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
 
 export default function PalindromePage() {
   const [palindromicCharacters, setPalindromicCharacters] = useState<Array<boolean>>([false]);
@@ -13,19 +13,27 @@ export default function PalindromePage() {
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
 
-    checkIfPalindrome(event.target.value);
+    // Todo: Add support for longestPalindrome function.
+
+    // checkIfPalindrome(event.target.value);
+    checkLongestPalindrome(event.target.value);
   }
 
-  function checkPalindrome() {
-    checkIfPalindrome(currentCheckString);
+  function onLoseFocus() {
+    // checkIfPalindrome(currentCheckString);
+    checkLongestPalindrome(currentCheckString);
   }
 
-  function checkIfPalindrome(newString: string) {
+  function checkLongestPalindrome(newString: string) {
+    let result = longestPalindrome(newString);
+    updateCharactersArray(newString, result.resultStartIndex, result.resultEndIndex);
+  }
+
+  function updateCharactersArray(newString: string, fromIndex: number, toIndex: number) {
     const tempCharacterStateArray: Array<boolean> = [];
-    let result = isPalindrome(newString);
 
     for (let index = 0; index < newString.length; index++) {
-      if (result) {
+      if (index >= fromIndex && index < toIndex) {
         tempCharacterStateArray.push(true);
       } else tempCharacterStateArray.push(false);
     }
@@ -44,7 +52,7 @@ export default function PalindromePage() {
         <div style={{ flex: 1 }} />
         <ButtonStringInput
           onChange={onWordUpdate}
-          onLoseFocus={checkPalindrome}
+          onLoseFocus={onLoseFocus}
           value={currentCheckString}
         >
           Word:

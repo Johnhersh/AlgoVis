@@ -17,7 +17,10 @@ const Palindrome: React.FC<Props> = ({ palindromicCharactersArray, checkWord }) 
     } else color = "black";
 
     textToRender.push(
-      <li key={"palindromeCharacter" + index} style={{ display: "inline", color: color }}>
+      <li
+        key={"palindromeCharacter" + index}
+        style={{ display: "inline", color: color, transition: "color 1s" }}
+      >
         {checkWord.charAt(index)}
       </li>
     );
