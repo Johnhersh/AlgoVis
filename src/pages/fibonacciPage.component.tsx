@@ -11,27 +11,30 @@ export default function FibonacciPage() {
   const [nValue, setNvalue] = useState(14);
   const [maxValue, setMaxValue] = useState(1);
   const [bDisableButtons, setDisableButtons] = useState(false);
+  const [bShouldRender, setbShouldRender] = useState(true);
 
   var fibonacciSequenceBuffer: Array<number> = [0, 1]; // A buffer I can build a fibonacci sequence into. Always want to start a fibonacci sequence with 0,1
   var refreshTimer: number;
 
-  // Gets called only once on mount because of [] second argument
   useEffect(() => {
     onCalc();
-  }, []);
+  });
 
   function onCalc() {
+    if (!bShouldRender) return;
+
     setDisableButtons(true);
+    setbShouldRender(false);
     fibonacciSequenceBuffer = [];
     setSequence([{ id: 0, value: 0 }]);
-    fibonacciSum(nValue, receieveUpdateItems);
+    fibonacciSum(nValue, receieveUpdatedItems);
 
     refreshTimer = window.setInterval(() => {
       updateChart();
     }, 70);
   }
 
-  function receieveUpdateItems(resultStep: number) {
+  function receieveUpdatedItems(resultStep: number) {
     // Trying to make sure the number isn't already in the buffer due to previous calculations
     for (let i = 0; i < fibonacciSequenceBuffer.length; i++) {
       if (fibonacciSequenceBuffer[i] === resultStep) return;
@@ -50,7 +53,7 @@ export default function FibonacciPage() {
 
     fibonacciSequenceBuffer.shift();
 
-    if (fibonacciSequenceBuffer.length == 0) {
+    if (fibonacciSequenceBuffer.length === 0) {
       clearInterval(refreshTimer);
       setTimeout(() => {
         setDisableButtons(false);
@@ -71,7 +74,7 @@ export default function FibonacciPage() {
       setNvalue(30);
       return;
     }
-    if (nValue > 1 && nValue < 30) onCalc();
+    if (nValue > 1 && nValue < 30) setbShouldRender(true);
   }
 
   return (
@@ -81,7 +84,7 @@ export default function FibonacciPage() {
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />
-        <Button text={"Calculate"} onPress={onCalc} disabled={bDisableButtons} />
+        <Button text={"Re-Calculate"} onPress={onLoseFocus} disabled={bDisableButtons} />
         <ButtonInput
           onChange={onNewNth}
           onLoseFocus={onLoseFocus}
