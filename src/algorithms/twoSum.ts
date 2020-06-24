@@ -6,7 +6,7 @@ export function twoSum(array: Array<number>, target: number, updateVisualsFuncti
     let left = 0;
     let right = array.length-1;
     while (left < right){
-        if (array[left] + array[right] == target) {
+        if (array[left] + array[right] === target) {
             return { a: array[left], b: array[right]};
         }else if (array[left] + array[right] < target) {
                 left++;
