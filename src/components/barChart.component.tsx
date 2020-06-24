@@ -14,7 +14,6 @@ export default function BarChart(props: any) {
             key={item.id}
             maxValue={props.maxValue}
             animSpeed={props.candleAnimSpeed}
-            totalCandles={props.workArray.length}
           />
         ))}
       </div>
