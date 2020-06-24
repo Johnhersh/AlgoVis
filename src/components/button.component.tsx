@@ -2,15 +2,23 @@ import React from "react";
 
 import "./button.styles.scss";
 
-export default function Button(props: any) {
+interface Props {
+  onPress(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
+  text: string;
+  disabled: boolean;
+}
+
+const Button: React.FC<Props> = ({ disabled, onPress, text }) => {
   return (
     <button
-      disabled={props.disabled}
-      data-disabled={props.disabled}
+      disabled={disabled}
+      data-disabled={disabled}
       className="buttonContainer"
-      onClick={props.onPress}
+      onClick={onPress}
     >
-      {props.text}
+      {text}
     </button>
   );
-}
+};
+
+export default Button;

@@ -28,10 +28,6 @@ export default function TwoSumPage() {
     setItems(newArray);
   }
 
-  function onFind() {
-    checkTwoSum(searchNumber);
-  }
-
   function onNewSearchNumber(event: React.ChangeEvent<HTMLInputElement>) {
     const newSearchNumber = Number(event.target.value);
 
@@ -65,8 +61,7 @@ export default function TwoSumPage() {
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />
-        <Button text={"Reset"} onPress={onReset} />
-        <Button text={"Find"} onPress={onFind} />
+        <Button text={"Reset"} onPress={onReset} disabled={false} />
         <ButtonNumberInput onChange={onNewSearchNumber} value={searchNumber} disabled={false}>
           Search for:
         </ButtonNumberInput>
