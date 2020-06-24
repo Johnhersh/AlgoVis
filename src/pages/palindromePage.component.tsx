@@ -4,7 +4,9 @@ import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
 import ButtonStringInput from "../components/buttonStringInput.component";
 
-import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
+// TODO: re-implement isPalindrome and add a dropdown to differentiate between the two
+// import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
+import { longestPalindrome } from "../algorithms/palindrome";
 
 export default function PalindromePage() {
   const [palindromicCharacters, setPalindromicCharacters] = useState<Array<boolean>>([false]);
