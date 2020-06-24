@@ -8,7 +8,7 @@ export default function ButtonStringInput(props: any) {
 
   useEffect(() => {
     setMaxWidth(150 + props.value.length * 10);
-  });
+  }, [props.value.length]);
 
   return (
     <form
