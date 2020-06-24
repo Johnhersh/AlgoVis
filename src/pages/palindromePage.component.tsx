@@ -56,6 +56,7 @@ export default function PalindromePage() {
           onChange={onWordUpdate}
           onLoseFocus={onLoseFocus}
           value={currentCheckString}
+          disabled={false}
         >
           Word:
         </ButtonStringInput>

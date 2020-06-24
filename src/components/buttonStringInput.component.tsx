@@ -3,34 +3,44 @@ import React, { useState, useEffect } from "react";
 import "./buttonStringInput.styles.scss";
 import "./button.styles.scss";
 
-export default function ButtonStringInput(props: any) {
+interface Props {
+  onLoseFocus(event: React.FocusEvent<HTMLInputElement>): void;
+  onChange(event: React.ChangeEvent<HTMLInputElement>): void;
+  value: string;
+  disabled: boolean;
+}
+
+const ButtonStringInput: React.FC<Props> = ({
+  onLoseFocus,
+  onChange,
+  value,
+  disabled,
+  children,
+}) => {
   const [maxWidth, setMaxWidth] = useState(0);
 
   useEffect(() => {
-    setMaxWidth(150 + props.value.length * 10);
-  }, [props.value.length]);
+    setMaxWidth(150 + value.length * 10);
+  }, [value.length]);
 
   return (
-    <form
-      data-disabled={props.disabled}
-      className="buttonStringContainer"
-      onClick={props.onPress}
-      style={{ maxWidth: maxWidth }}
-    >
+    <form data-disabled={disabled} className="buttonStringContainer" style={{ maxWidth: maxWidth }}>
       <div className="buttonStringInputContainer">
-        <p>{props.children}</p>
+        <p>{children}</p>
         <input
           type="text"
           className="buttonStringInputField"
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
-          onBlur={props.onLoseFocus}
-          onChange={props.onChange}
-          value={props.value}
-          // disabled={props.disabled}
+          onBlur={onLoseFocus}
+          onChange={onChange}
+          value={value}
+          disabled={disabled}
         ></input>
       </div>
     </form>
   );
-}
+};
+
+export default ButtonStringInput;
