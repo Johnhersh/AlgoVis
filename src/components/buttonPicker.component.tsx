@@ -18,7 +18,7 @@ const ButtonPicker: React.FC<Props> = ({ currentSelection, updatePickFunction, c
       onChange={updateParentState}
       value={currentSelection}
       className="buttonContainer"
-      style={{ paddingLeft: 5, paddingRight: 5 }}
+      style={{ paddingLeft: 5, paddingRight: 5, minWidth: "auto" }}
     >
       {children}
     </select>
