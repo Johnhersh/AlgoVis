@@ -57,6 +57,18 @@ export default function PalindromePage() {
     }
   }
 
+  function onPickSwitch(newString: string) {
+    setAlgoPicker(newString);
+    switch (newString) {
+      case "ispalindrome":
+        checkIfPalindrome(currentCheckString);
+        break;
+      case "longest":
+        checkLongestPalindrome(currentCheckString);
+        break;
+    }
+  }
+
   function checkLongestPalindrome(newString: string) {
     let result = longestPalindrome(newString);
     updateCharactersArray(newString, result.resultStartIndex, result.resultEndIndex);
@@ -91,7 +103,7 @@ export default function PalindromePage() {
         >
           Word:
         </ButtonStringInput>
-        <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker}>
+        <ButtonPicker currentSelection={algoPicker} updatePickFunction={onPickSwitch}>
           <option value="ispalindrome">Is Palindrome?</option>
           <option value="longest">Longest Palindrome</option>
         </ButtonPicker>
