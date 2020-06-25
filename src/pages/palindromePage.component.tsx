@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
@@ -6,24 +6,55 @@ import ButtonStringInput from "../components/buttonStringInput.component";
 import ButtonPicker from "../components/buttonPicker.component";
 
 // TODO: re-implement isPalindrome and add a dropdown to differentiate between the two
-// import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
-import { longestPalindrome } from "../algorithms/palindrome";
+import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
+// import { longestPalindrome } from "../algorithms/palindrome";
 
 export default function PalindromePage() {
   const [palindromicCharacters, setPalindromicCharacters] = useState<Array<boolean>>([false]);
   const [currentCheckString, setCurrentCheckString] = useState("");
   const [algoPicker, setAlgoPicker] = useState("ispalindrome"); // Can be: 'ispalindrome', 'longest'
 
+  useEffect(() => {
+    switch (algoPicker) {
+      case "ispalindrome":
+        checkIfPalindrome(currentCheckString);
+        break;
+      case "longest":
+        checkLongestPalindrome(currentCheckString);
+        break;
+    }
+  }, [algoPicker]);
+
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
 
-    // checkIfPalindrome(event.target.value);
-    checkLongestPalindrome(event.target.value);
+    switch (algoPicker) {
+      case "ispalindrome":
+        checkIfPalindrome(event.target.value);
+        break;
+      case "longest":
+        checkLongestPalindrome(event.target.value);
+        break;
+    }
+  }
+
+  function checkIfPalindrome(newString: string) {
+    let result = isPalindrome(newString);
+
+    if (result) {
+      updateCharactersArray(newString, 0, newString.length);
+    } else updateCharactersArray(newString, 0, 0);
   }
 
   function onLoseFocus() {
-    // checkIfPalindrome(currentCheckString);
-    checkLongestPalindrome(currentCheckString);
+    switch (algoPicker) {
+      case "ispalindrome":
+        checkIfPalindrome(currentCheckString);
+        break;
+      case "longest":
+        checkLongestPalindrome(currentCheckString);
+        break;
+    }
   }
 
   function checkLongestPalindrome(newString: string) {
