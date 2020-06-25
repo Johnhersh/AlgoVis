@@ -9,7 +9,7 @@ interface Props {
 
 const ButtonPicker: React.FC<Props> = ({ currentSelection, updatePickFunction, children }) => {
   // Had to call the parent function here because it expects a string and not an event
-  function updateParentState(event: any) {
+  function updateParentState(event: React.ChangeEvent<HTMLSelectElement>) {
     updatePickFunction(event.target.value);
   }
 
