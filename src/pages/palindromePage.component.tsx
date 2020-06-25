@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
 import ButtonStringInput from "../components/buttonStringInput.component";
 import ButtonPicker from "../components/buttonPicker.component";
 
-// TODO: re-implement isPalindrome and add a dropdown to differentiate between the two
 import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
-// import { longestPalindrome } from "../algorithms/palindrome";
 
 export default function PalindromePage() {
   const [palindromicCharacters, setPalindromicCharacters] = useState<Array<boolean>>([false]);
   const [currentCheckString, setCurrentCheckString] = useState("");
   const [algoPicker, setAlgoPicker] = useState("ispalindrome"); // Can be: 'ispalindrome', 'longest'
-
-  useEffect(() => {
-    switch (algoPicker) {
-      case "ispalindrome":
-        checkIfPalindrome(currentCheckString);
-        break;
-      case "longest":
-        checkLongestPalindrome(currentCheckString);
-        break;
-    }
-  }, [algoPicker]);
 
   function onWordUpdate(event: any) {
     if (event.target.value.length < 30) setCurrentCheckString(event.target.value);
@@ -44,17 +31,6 @@ export default function PalindromePage() {
     if (result) {
       updateCharactersArray(newString, 0, newString.length);
     } else updateCharactersArray(newString, 0, 0);
-  }
-
-  function onLoseFocus() {
-    switch (algoPicker) {
-      case "ispalindrome":
-        checkIfPalindrome(currentCheckString);
-        break;
-      case "longest":
-        checkLongestPalindrome(currentCheckString);
-        break;
-    }
   }
 
   function onPickSwitch(newString: string) {
@@ -95,12 +71,7 @@ export default function PalindromePage() {
       </div>
       <div className="buttonsContainer">
         <div style={{ flex: 1 }} />
-        <ButtonStringInput
-          onChange={onWordUpdate}
-          onLoseFocus={onLoseFocus}
-          value={currentCheckString}
-          disabled={false}
-        >
+        <ButtonStringInput onChange={onWordUpdate} value={currentCheckString} disabled={false}>
           Word:
         </ButtonStringInput>
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={onPickSwitch}>
