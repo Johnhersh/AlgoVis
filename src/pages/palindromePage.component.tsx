@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import "./palindromePage.styles.scss";
 import Palindrome from "../components/palindrome.component";
-import ButtonStringInput from "../components/buttonStringInput.component";
-import ButtonPicker from "../components/buttonPicker.component";
+import ButtonStringInput from "../components/Buttons/buttonStringInput.component";
+import ButtonPicker from "../components/Buttons/buttonPicker.component";
 
 import { isPalindrome, longestPalindrome } from "../algorithms/palindrome";
 

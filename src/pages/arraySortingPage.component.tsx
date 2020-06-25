@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import BarChart from "../components/barChart.component";
-import Button from "../components/button.component";
-import ButtonPicker from "../components/buttonPicker.component";
-import ButtonNumberInput from "../components/buttonNumberInput.component";
+import Button from "../components/Buttons/button.component";
+import ButtonPicker from "../components/Buttons/buttonPicker.component";
+import ButtonNumberInput from "../components/Buttons/buttonNumberInput.component";
 import { iterativeMergeSort, quickSort, bubbleSort } from "../algorithms/sortingAlgorithms";
 
 import "./arraySortingPage.styles.scss";
