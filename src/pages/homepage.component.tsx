@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import "./homepage.styles.scss";
 import TopBar from "../components/topBar.component";
+import MainMenu from "./mainMenu.component";
 import PalindromePage from "./palindromePage.component";
 import ArraySortingPage from "./arraySortingPage.component";
 import FibonacciPage from "./fibonacciPage.component";
@@ -23,6 +24,12 @@ export default function HomePage(props: any) {
       <Router>
         <TopBar />
         <Switch>
+          <Route exact path="/">
+            <Redirect to="/mainmenu" />
+          </Route>
+          <Route path="/mainmenu">
+            <MainMenu />
+          </Route>
           <Route path="/palindrome">
             <PalindromePage />
           </Route>
