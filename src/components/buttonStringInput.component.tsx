@@ -4,7 +4,7 @@ import "./buttonStringInput.styles.scss";
 import "./button.styles.scss";
 
 interface Props {
-  onLoseFocus(event: React.FocusEvent<HTMLInputElement>): void;
+  onLoseFocus?(event: React.FocusEvent<HTMLInputElement>): void;
   onChange(event: React.ChangeEvent<HTMLInputElement>): void;
   value: string;
   disabled: boolean;
