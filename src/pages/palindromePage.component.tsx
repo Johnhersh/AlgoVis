@@ -25,14 +25,6 @@ export default function PalindromePage() {
     }
   }
 
-  function checkIfPalindrome(newString: string) {
-    let result = isPalindrome(newString);
-
-    if (result) {
-      updateCharactersArray(newString, 0, newString.length);
-    } else updateCharactersArray(newString, 0, 0);
-  }
-
   function onPickSwitch(newString: string) {
     setAlgoPicker(newString);
     switch (newString) {
@@ -43,6 +35,14 @@ export default function PalindromePage() {
         checkLongestPalindrome(currentCheckString);
         break;
     }
+  }
+
+  function checkIfPalindrome(newString: string) {
+    let result = isPalindrome(newString);
+
+    if (result) {
+      updateCharactersArray(newString, 0, newString.length);
+    } else updateCharactersArray(newString, 0, 0);
   }
 
   function checkLongestPalindrome(newString: string) {
