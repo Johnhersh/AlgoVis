@@ -1,4 +1,5 @@
 @import "../colors.scss";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .topBarContainer {
   display: flex;
@@ -17,18 +18,20 @@
   list-style: none;
   font-size: larger;
   white-space: nowrap;
+  display: flex;
 }
 
 .navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: black;
   transition: color 0.2s;
   text-decoration: none;
   &.navLinkActive {
     color: white;
-    text-decoration: underline;
   }
   &:hover {
     color: white;
-    text-decoration: underline;
   }
 }
