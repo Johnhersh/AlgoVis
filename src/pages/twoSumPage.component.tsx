@@ -8,8 +8,8 @@ import {
 } from "./arrayHelperFunctions";
 import BarChart from "../components/barChart.component";
 import { twoSum } from "../algorithms/twoSum";
-import Button from "../components/button.component";
-import ButtonNumberInput from "../components/buttonNumberInput.component";
+import Button from "../components/Buttons/button.component";
+import ButtonNumberInput from "../components/Buttons/buttonNumberInput.component";
 
 export default function TwoSumPage() {
   const desiredAmountOfValues = 18;
