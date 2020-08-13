@@ -14,16 +14,14 @@ const ButtonPicker: React.FC<Props> = ({ currentSelection, updatePickFunction, c
   }
 
   return (
-    <div className="custom-select" style={{ width: 200 }}>
-      <select
-        onChange={updateParentState}
-        value={currentSelection}
-        className="buttonContainer"
-        style={{ paddingLeft: 5, paddingRight: 5, minWidth: "auto" }}
-      >
-        {children}
-      </select>
-    </div>
+    <select
+      onChange={updateParentState}
+      value={currentSelection}
+      className="buttonContainer"
+      style={{ paddingLeft: 5, paddingRight: 5, minWidth: "auto" }}
+    >
+      {children}
+    </select>
   );
 };
 
