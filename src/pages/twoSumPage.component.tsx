@@ -56,10 +56,10 @@ export default function TwoSumPage() {
 
   return (
     <div className="twoSumPageContainer">
-      <div className="twoSumResultContainer">
+      <div className="twoSumResultContainer noScrollBarContainer">
         <BarChart workArray={items} maxValue={100} candleAnimSpeed={1} />
       </div>
-      <div className="buttonsContainer">
+      <div className="buttonsContainer noScrollBarContainer">
         <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} disabled={false} />
         <ButtonNumberInput onChange={onNewSearchNumber} value={searchNumber} disabled={false}>

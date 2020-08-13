@@ -79,10 +79,10 @@ export default function FibonacciPage() {
 
   return (
     <div className="fibonacciPageContainer">
-      <div className="fibonacciResultContainer">
+      <div className="fibonacciResultContainer noScrollBarContainer">
         <BarChart workArray={sequence} maxValue={maxValue} candleAnimSpeed={1} />
       </div>
-      <div className="buttonsContainer">
+      <div className="buttonsContainer noScrollBarContainer">
         <div style={{ flex: 1 }} />
         <Button text={"Re-Calculate"} onPress={onLoseFocus} disabled={bDisableButtons} />
         <ButtonInput

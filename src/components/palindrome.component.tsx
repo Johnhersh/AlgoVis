@@ -26,7 +26,7 @@ const Palindrome: React.FC<Props> = ({ palindromicCharactersArray, checkWord }) 
     );
   }
 
-  return <ul className="palindromeContainer">{textToRender}</ul>;
+  return <ul className="palindromeContainer noScrollBarContainer">{textToRender}</ul>;
 };
 
 export default Palindrome;

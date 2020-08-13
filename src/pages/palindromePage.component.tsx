@@ -63,20 +63,24 @@ export default function PalindromePage() {
 
   return (
     <div className="palindromePageContainer">
-      <div className="palindromeResultContainer">
+      <div className="palindromeResultContainer noScrollBarContainer">
         <Palindrome
           checkWord={currentCheckString}
           palindromicCharactersArray={palindromicCharacters}
         />
       </div>
-      <div className="buttonsContainer">
+      <div className="buttonsContainer noScrollBarContainer">
         <div style={{ flex: 1 }} />
         <ButtonStringInput onChange={onWordUpdate} value={currentCheckString} disabled={false}>
           Word:
         </ButtonStringInput>
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={onPickSwitch}>
-          <option value="ispalindrome">Is Palindrome?</option>
-          <option value="longest">Longest Palindrome</option>
+          <option value="ispalindrome" className="dropdownSelection">
+            Is Palindrome?
+          </option>
+          <option value="longest" className="dropdownSelection">
+            Longest Palindrome
+          </option>
         </ButtonPicker>
         <div style={{ flex: 1 }} />
       </div>

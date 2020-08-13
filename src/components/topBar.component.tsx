@@ -6,7 +6,7 @@ import "./topBar.styles.scss";
 
 export default function TopBar(props: any) {
   return (
-    <div className="topBarContainer">
+    <div className="topBarContainer noScrollBarContainer">
       <nav>
         <ul className="navLinksContainer">
           <li className="linkItem">

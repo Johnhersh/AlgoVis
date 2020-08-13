@@ -112,17 +112,23 @@ export default function ArraySortingPage() {
 
   return (
     <div className="arraySortingPageContainer">
-      <div className="barChartComponentContainer">
+      <div className="barChartComponentContainer noScrollBarContainer">
         <BarChart workArray={items} maxValue={100} candleAnimSpeed={0.1} />
       </div>
-      <div className="buttonsContainer">
+      <div className="buttonsContainer noScrollBarContainer">
         <div style={{ flex: 1 }} />
         <Button text={"Reset"} onPress={onReset} disabled={bDisableButtons} />
         <Button text={"Sort"} onPress={onSort} disabled={bDisableButtons} />
         <ButtonPicker currentSelection={algoPicker} updatePickFunction={setAlgoPicker}>
-          <option value="mergesort">Merge Sort</option>
-          <option value="quicksort">Quick Sort</option>
-          <option value="bubblesort">Bubble Sort</option>
+          <option value="mergesort" className="dropdownSelection">
+            Merge Sort
+          </option>
+          <option value="quicksort" className="dropdownSelection">
+            Quick Sort
+          </option>
+          <option value="bubblesort" className="dropdownSelection">
+            Bubble Sort
+          </option>
         </ButtonPicker>
         <ButtonNumberInput
           onChange={onNewLength}
